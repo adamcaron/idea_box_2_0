@@ -1,5 +1,5 @@
 class IdeaController < ApplicationController
   def index
-    @ideas = Idea.all
+    @ideas = Idea.all.reverse
   end
 end

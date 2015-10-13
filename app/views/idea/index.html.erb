@@ -1,5 +1,4 @@
 <section id="ideas">
-
   <section id="search-ideas">
     <%= form_tag("#", method: "get") do %>
       <%= text_field_tag :q, params[:q], placeholder: "Search Ideas" %>
@@ -10,7 +9,7 @@
     <article class="idea">
       <h2><%= i.title %></h2>
       <span><%= i.created_at.strftime("%b. %d, %Y") %> at <%= i.created_at.strftime("%l:%M%P") %></span>
-      <p><%= i.body %></p>
+      <p><%= i.body.truncate(100, separator: /\s/) %></p>
       <span><%= i.quality %></span>
       <%= button_tag "+" %>
       <%= button_tag "-" %>
@@ -18,7 +17,6 @@
       <%= button_tag "Delete" %>
     </article>
   <% end %>
-
 </section>
 
 <aside id="idea-creation-area">

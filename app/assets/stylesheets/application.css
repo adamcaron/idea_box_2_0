@@ -14,12 +14,29 @@
  *= require_self
  */
 
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  min-height: 100%;
+header h1 {
+  color: white;
+  /*background-color: white;*/
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 170px;
+  border: 15px solid #ffd147;
+}
 
+footer {
+  color: white;
+  margin-bottom: 0;
+  position: absolute;
+}
+
+header, footer {
+  padding: 10px;
+  background: tomato;
+  width: 100%;
+  text-align: center;
+}
+
+.flex-container {
   -ms-box-orient: horizontal;
   display: -webkit-box;
   display: -moz-box;
@@ -36,28 +53,11 @@
   align-items: stretch;
 }
 
-.header,
-.footer  { flex: 1 100%; }
-.sidebar { flex: 1; }
-.main    { flex: 2; }
-
-.flex-item {
-
-  background: tomato;
-  padding: 10px;
-  width: 100px;
-  border: 3px solid rgba(0,0,0,.2);
-
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-}
-
 body {
-  max-width: 960px;
+  background-color: #f8f8f8;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
   min-height: 100%;
-  margin: 0 auto;
   padding: 0;
 }
 
@@ -66,9 +66,3 @@ html {
   margin: 0;
   padding: 0;
 }
-
-/*@media screen and (max-width: 768px) {
-    body {
-        background-color: lightgreen;
-    }
-}*/

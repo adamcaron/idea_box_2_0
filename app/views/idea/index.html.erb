@@ -1,2 +1,19 @@
-<main class="flex-item main">Main</main>
-<aside class="flex-item sidebar">Sidebar</aside>
+<section id="ideas" class="flex-item">
+
+  <section id="search-ideas">
+    <%= form_tag("#", method: "get") do %>
+      <%= text_field_tag :q, params[:q], placeholder: "Search Ideas" %>
+    <% end %>
+  </section>
+
+  <% @ideas.each do |i| %>
+    <article class="idea">
+      <h2><%= i.title %></h2>
+      <p><%= i.body %></p>
+      <p><%= i.quality %></p>
+    </article>
+  <% end %>
+
+</section>
+
+<aside id="idea-creation-area" class="flex-item">Sidebar</aside>

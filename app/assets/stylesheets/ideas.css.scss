@@ -1,0 +1,42 @@
+#search-ideas input[type="text"] {
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  font-size: 1em;
+  padding: 15px 5px;
+  -webkit-flex: auto;
+  flex: auto;
+}
+
+#search-ideas input[type="text"]:hover {
+  border: 1px solid blue;
+}
+
+#search-ideas form {
+  display:                -webkit-flex;
+  display:                flex;
+  -webkit-flex-direction: row;
+  flex-direction:         row;
+}
+
+.idea {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.2);
+}
+
+#ideas {
+  padding: 0;
+  max-width: 1024px;
+  margin: 0 auto;
+  min-height: 100%;
+  flex: 2;
+}
+
+#idea-creation-area {
+  margin: 5px 0 0 5px;
+  border: 1px solid rgba(0,0,0,.2);
+  padding: 10px;
+  background-color: white;
+  height: 200px;
+  flex: 1;
+}

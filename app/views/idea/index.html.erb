@@ -1,4 +1,4 @@
-<section id="ideas" class="flex-item">
+<section id="ideas">
 
   <section id="search-ideas">
     <%= form_tag("#", method: "get") do %>
@@ -21,4 +21,13 @@
 
 </section>
 
-<aside id="idea-creation-area" class="flex-item">Sidebar</aside>
+<aside id="idea-creation-area">
+  <h2>Add an Idea:</h2>
+  <%= form_for :idea, url: '#', method: "post" do |i| %>
+    <%= i.label :title %>
+    <%= i.text_field :title %>
+    <%= i.label :body %>
+    <%= i.text_area :body %>
+    <%= i.submit "Save", id: "save-idea" %>
+  <% end %>
+</aside>

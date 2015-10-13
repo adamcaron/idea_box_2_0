@@ -11,7 +11,11 @@
       <h2><%= i.title %></h2>
       <span><%= i.created_at.strftime("%b. %d, %Y") %> at <%= i.created_at.strftime("%l:%M%P") %></span>
       <p><%= i.body %></p>
-      <p><%= i.quality %></p>
+      <span><%= i.quality %></span>
+      <%= button_tag "+" %>
+      <%= button_tag "-" %>
+      <%= button_tag "Edit" %>
+      <%= button_tag "Delete" %>
     </article>
   <% end %>
 

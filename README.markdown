@@ -8,7 +8,7 @@ This app features:
  - Rails to manage data related to our ideas and serve initial UI templates
  - Javascript (with jQuery) to manage client-side interactions and communicate asynchronously with the server
 
- ### Setup
+### Setup
 
 To run this app locally:
  - `git clone git@github.com:adamcaron/idea_box_2_0.git`

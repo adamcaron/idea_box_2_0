@@ -15,6 +15,10 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.0'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
@@ -26,6 +30,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'database_cleaner'
   gem 'awesome_print'
+  gem 'faker'
 end
 
 group :production do

@@ -1,0 +1,33 @@
+<section id="ideas">
+
+  <section id="search-ideas">
+    <%= form_tag("#", method: "get") do %>
+      <%= text_field_tag :q, params[:q], placeholder: "Search Ideas" %>
+    <% end %>
+  </section>
+
+  <% @ideas.each do |i| %>
+    <article class="idea">
+      <h2><%= i.title %></h2>
+      <span><%= i.created_at.strftime("%b. %d, %Y") %> at <%= i.created_at.strftime("%l:%M%P") %></span>
+      <p><%= i.body %></p>
+      <span><%= i.quality %></span>
+      <%= button_tag "+" %>
+      <%= button_tag "-" %>
+      <%= button_tag "Edit" %>
+      <%= button_tag "Delete" %>
+    </article>
+  <% end %>
+
+</section>
+
+<aside id="idea-creation-area">
+  <h2>Add an Idea:</h2>
+  <%= form_for :idea, url: '#', method: "post" do |i| %>
+    <%= i.label :title %>
+    <%= i.text_field :title %>
+    <%= i.label :body %>
+    <%= i.text_area :body %>
+    <%= i.submit "Save", id: "save-idea" %>
+  <% end %>
+</aside>

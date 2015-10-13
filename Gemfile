@@ -30,6 +30,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'database_cleaner'
   gem 'awesome_print'
+  gem 'faker'
 end
 
 group :production do

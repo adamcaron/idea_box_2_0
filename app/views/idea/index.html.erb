@@ -9,6 +9,7 @@
   <% @ideas.each do |i| %>
     <article class="idea">
       <h2><%= i.title %></h2>
+      <span><%= i.created_at.strftime("%b. %d, %Y") %> at <%= i.created_at.strftime("%l:%M%P") %></span>
       <p><%= i.body %></p>
       <p><%= i.quality %></p>
     </article>

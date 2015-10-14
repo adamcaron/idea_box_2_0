@@ -21,7 +21,7 @@
 
 <aside id="idea-creation-area">
   <h2>Add an Idea:</h2>
-  <%= form_for :idea, url: '#', method: "post" do |i| %>
+  <%= form_for :idea, remote: true do |i| %>
     <%= i.label :title %>
     <%= i.text_field :title %>
     <%= i.label :body %>

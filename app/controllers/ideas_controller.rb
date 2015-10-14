@@ -24,8 +24,9 @@ class IdeasController < ApplicationController
 
   def update
     @idea = Idea.find(params[:id])
-    @idea.update(title: params[:idea][:title],
-                  body: params[:idea][:body])
+    @idea.update(
+      title: params[:idea][:title],
+      body:  params[:idea][:body])
     redirect_to root_path
   end
 end

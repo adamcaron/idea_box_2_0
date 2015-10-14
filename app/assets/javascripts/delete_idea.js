@@ -1,15 +1,13 @@
-$(document).ready(function(){
-  $(".idea").delegate(".delete-idea", "click", function (event){
-    event.preventDefault();
+$(document).on('click', ".delete-idea", function (event) {
+  event.preventDefault();
 
-    // Get the id
-    var id = $(this).closest(".idea").data("idea-id")
+  // Get the id
+  var id = $(this).closest(".idea").data("idea-id")
 
-    // Double check
-    if (confirm('Are you sure you want to DELETE this Idea?')) {
-      deleteIdea(id);
-    }
-  });
+  // Double check
+  if (confirm('Are you sure you want to DELETE this Idea?')) {
+    deleteIdea(id);
+  }
 });
 
 function deleteIdea(id) {

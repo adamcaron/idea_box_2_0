@@ -1,12 +1,10 @@
-$(document).ready(function(){
-  $("#idea-creation-area").delegate("#save-idea", "click", function (event){
-    event.preventDefault();
-    var title = $("#idea_title").val();
-    var body  = $("#idea_body").val();
-    var form  = '#idea-creation-area form'
-    createNewIdea(title, body);
-    clearFormFields(form);
-  });
+$(document).on('click', "#save-idea", function (event) {
+  event.preventDefault();
+  var title = $("#idea_title").val();
+  var body  = $("#idea_body").val();
+  var form  = '#idea-creation-area form'
+  createNewIdea(title, body);
+  clearFormFields(form);
 });
 
 function createNewIdea(title, body) {

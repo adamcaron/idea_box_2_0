@@ -10,6 +10,11 @@ class IdeasController < ApplicationController
     render json: { title: idea.title,
                     body: body,
                     date: date,
-                 quality: idea.quality }
+                 quality: idea.quality,
+                      id: idea.id }
+  end
+
+  def destroy
+    render json: Idea.destroy(params[:id])
   end
 end

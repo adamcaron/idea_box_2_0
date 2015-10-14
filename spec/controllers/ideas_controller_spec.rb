@@ -29,4 +29,18 @@ RSpec.describe IdeasController, type: :controller do
       expect(new_count).to eq(old_count + 1)
     end
   end
+
+  context "#destroy" do
+    it "deletes the idea from the database" do
+      idea      = Idea.create(title: "Some Idea", body: "details")
+      id        = idea.id
+      old_count = Idea.count
+
+      delete :destroy, format: :json, id: idea.id
+
+      new_count = Idea.count
+      expect(new_count).to eq(old_count - 1)
+      expect(response.status).to be(200)
+    end
+  end
 end

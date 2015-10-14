@@ -9,8 +9,9 @@ $(document).on('click', "#save-idea", function (event) {
   createNewIdea(title, body)
     .then(renderNewIdea)
     .then(function () {
+      debugger;
       clearFormFields(form);
-  };
+  });
 });
 
 function createNewIdea (title, body) {

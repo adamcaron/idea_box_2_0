@@ -13,7 +13,7 @@
       <span><%= i.quality %></span>
       <%= button_tag "+" %>
       <%= button_tag "-" %>
-      <%= button_tag "Edit" %>
+      <%= link_to "Edit", edit_idea_path(i.id) %>
       <%= button_tag "Delete", class: "delete-idea" %>
     </article>
   <% end %>
@@ -21,11 +21,11 @@
 
 <aside id="idea-creation-area">
   <h2>Add an Idea:</h2>
-  <%= form_for :idea, remote: true do |i| %>
-    <%= i.label :title %>
-    <%= i.text_field :title %>
-    <%= i.label :body %>
-    <%= i.text_area :body %>
-    <%= i.submit "Save", id: "save-idea" %>
+  <%= form_for :idea, remote: true do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+    <%= f.submit "Save", id: "save-idea" %>
   <% end %>
 </aside>

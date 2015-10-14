@@ -6,7 +6,7 @@
   </section>
 
   <% @ideas.each do |i| %>
-    <article class="idea">
+    <article class="idea" data-idea-id=<%= i.id.to_s %>>
       <h2><%= i.title %></h2>
       <span><%= i.created_at.strftime("%b. %d, %Y") %> at <%= i.created_at.strftime("%l:%M%P") %></span>
       <p><%= i.body.truncate(100, separator: /\s/) %></p>
@@ -14,7 +14,7 @@
       <%= button_tag "+" %>
       <%= button_tag "-" %>
       <%= button_tag "Edit" %>
-      <%= button_tag "Delete" %>
+      <%= button_tag "Delete", class: "delete-idea" %>
     </article>
   <% end %>
 </section>

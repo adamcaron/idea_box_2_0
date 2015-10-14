@@ -12,7 +12,7 @@ $(document).ready(function(){
 function createNewIdea(title, body) {
   $.ajax({
     type: "POST",
-    url: "/idea/create",
+    url: "/ideas",
     data: { title: title, body: body },
     success: function(newIdea) {
       renderNewIdea(newIdea);
@@ -28,7 +28,9 @@ function clearFormFields(form) {
 
 function renderNewIdea(idea) {
   $(".idea").first().before(
-    "<article class='idea'><h2>"
+    "<article class='idea' data-idea-id='"
+    + idea.id
+    + "'><h2>"
     + idea.title
     + "</h2><span>"
     + idea.date
@@ -39,7 +41,7 @@ function renderNewIdea(idea) {
     + "\n</span><button name='button' type='submit'>+</button>\n"
     + "</span><button name='button' type='submit'>-</button>\n"
     + "</span><button name='button' type='submit'>Edit</button>\n"
-    + "</span><button name='button' type='submit'>Delete</button>"
+    + "</span><button class='delete-idea' name='button' type='submit'>Delete</button>"
     + "</article>"
   );
 };

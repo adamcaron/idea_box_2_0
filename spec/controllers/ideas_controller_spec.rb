@@ -43,4 +43,27 @@ RSpec.describe IdeasController, type: :controller do
       expect(response.status).to be(200)
     end
   end
+
+  context "#edit" do
+    it "responds to a request" do
+      idea = Idea.create(title: "Some Idea", body: "details")
+
+      get :edit, id: idea.id
+
+      expect(response.status).to be(200)
+    end
+  end
+
+  context "#update" do
+    it "updates the idea" do
+      idea = Idea.create(title: "Some Idea", body: "details")
+
+      put :update, id: idea.id, idea: { title: "New Title",
+                                        body: "New details" }
+
+      updated = Idea.find(idea.id)
+      expect(updated.title).to eq("New Title")
+      expect(updated.body).to eq("New details")
+    end
+  end
 end

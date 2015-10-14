@@ -4,19 +4,19 @@ $(document).on('click', ".delete-idea", function (event) {
   // Get the id
   var id = $(this).closest(".idea").data("idea-id")
 
-  // Double check
+  // Double check ...
   if (confirm('Are you sure you want to DELETE this Idea?')) {
-    deleteIdea(id);
+    deleteIdea(id)
+      .then(function () {
+        removeIdeaFromPage(id);
+      });
   }
 });
 
 function deleteIdea(id) {
-  $.ajax({
+  return $.ajax({
     type: "DELETE",
-    url: "/ideas/" + id,
-    success: function () {
-      removeIdeaFromPage(id);
-    }
+    url: "/ideas/" + id
   });
 };
 
@@ -24,7 +24,7 @@ function removeIdeaFromPage(id) {
   var idea = $(".idea[data-idea-id=" + id + "]");
   var confirmation = "<h2 class='notification'>Idea deleted.</h2>";
 
-  // Confirm deletion
+  // Remove the idea and confirm it was deleted.
   idea.replaceWith(confirmation);
   $(".notification").fadeOut(2000, 'linear');
 };

@@ -14,13 +14,21 @@
  *= require_self
  */
 
-header h1 {
+#logo h1 {
+  display: inline-block;
   color: white;
-  /*background-color: white;*/
   margin: 0 auto;
   padding: 10px 0;
   width: 170px;
   border: 15px solid #ffd147;
+}
+
+#logo h1:hover {
+  width: 190px;
+}
+
+#logo {
+  text-decoration: none;
 }
 
 footer {
@@ -36,10 +44,18 @@ header, footer {
   text-align: center;
 }
 
-.flex-container {
-  max-width: 1024px;
-  margin: 0 auto 10px auto;
+.page-wrapper:after {
+  content: "";
+  display: block;
+}
 
+.page-wrapper {
+  min-height: 100%;
+  max-width: 1024px;
+  margin: 0 auto; /* margin-bottom equal to footer height */
+}
+
+.flex-container {
   -ms-box-orient: horizontal;
   display: -webkit-box;
   display: -moz-box;
@@ -59,13 +75,14 @@ header, footer {
 body {
   background-color: #f8f8f8;
   font-family: Helvetica, Arial, sans-serif;
-  margin: 0;
-  min-height: 100%;
-  padding: 0;
+  height: 100%;
 }
 
 html {
-  min-height: 100%;
-  margin: 0;
+  height: 100%;
+}
+
+* {
   padding: 0;
+  margin: 0;
 }

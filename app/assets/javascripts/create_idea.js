@@ -1,30 +1,28 @@
 $(document).on('click', "#save-idea", function (event) {
   event.preventDefault();
+  // Get the form data & the form
   var title = $("#idea_title").val();
   var body  = $("#idea_body").val();
   var form  = '#idea-creation-area form'
-  createNewIdea(title, body);
-  clearFormFields(form);
+
+  // Create & render the new idea, and reset the form
+  createNewIdea(title, body)
+    .then(renderNewIdea)
+    .then(function () {
+      debugger;
+      clearFormFields(form);
+  });
 });
 
-function createNewIdea(title, body) {
-  $.ajax({
+function createNewIdea (title, body) {
+  return $.ajax({
     type: "POST",
     url: "/ideas",
-    data: { title: title, body: body },
-    success: function(newIdea) {
-      renderNewIdea(newIdea);
-    }
+    data: { title: title, body: body }
   });
 };
 
-function clearFormFields(form) {
-  $(form).each(function(){
-    this.reset();
-  });
-};
-
-function renderNewIdea(idea) {
+function renderNewIdea (idea) {
   $(".idea").first().before(
     "<article class='idea' data-idea-id='"
     + idea.id
@@ -37,9 +35,15 @@ function renderNewIdea(idea) {
     + "</p><span>"
     + idea.quality
     + "\n</span><button name='button' type='submit'>+</button>\n"
-    + "</span><button name='button' type='submit'>-</button>\n"
-    + "</span><button name='button' type='submit'>Edit</button>\n"
-    + "</span><button class='delete-idea' name='button' type='submit'>Delete</button>"
+    + "<button name='button' type='submit'>-</button>\n"
+    + "<a href='ideas/" + idea.id + "/edit'>Edit</a>\n"
+    + "<button class='delete-idea' name='button' type='submit'>Delete</button>"
     + "</article>"
   );
+};
+
+function clearFormFields (form) {
+  $(form).each(function(){
+    this.reset();
+  });
 };

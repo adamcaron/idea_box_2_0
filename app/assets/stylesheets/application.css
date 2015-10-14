@@ -30,7 +30,7 @@ footer {
 }
 
 header, footer {
-  padding: 10px;
+  padding: 10px 0;
   background: tomato;
   width: 100%;
   text-align: center;

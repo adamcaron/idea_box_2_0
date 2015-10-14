@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root 'idea#index'
+  root 'ideas#index'
+  post 'idea/create', to: 'ideas#create'
 end

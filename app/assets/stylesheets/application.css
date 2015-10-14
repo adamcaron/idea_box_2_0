@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 #logo h1 {
   display: inline-block;
   color: white;
@@ -45,10 +44,6 @@ header, footer {
   text-align: center;
 }
 
-footer, .page-wrapper:after {
-  height: 50px;
-}
-
 .page-wrapper:after {
   content: "";
   display: block;
@@ -57,7 +52,7 @@ footer, .page-wrapper:after {
 .page-wrapper {
   min-height: 100%;
   max-width: 1024px;
-  margin: 0 auto -50px auto; /* margin-bottom equal to footer height */
+  margin: 0 auto; /* margin-bottom equal to footer height */
 }
 
 .flex-container {

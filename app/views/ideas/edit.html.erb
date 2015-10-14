@@ -1,0 +1,8 @@
+<h2 id="edit-title">Edit Idea:</h2>
+<%= form_for @idea do |f| %>
+  <h3><%= f.label :title %></h3>
+  <%= f.text_field :title %>
+  <h3><%= f.label :body %></h3>
+  <%= f.text_area :body %>
+  <%= f.submit "Update" %>
+<% end %>

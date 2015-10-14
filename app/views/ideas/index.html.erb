@@ -1,31 +1,35 @@
-<section id="ideas">
-  <section id="search-ideas">
-    <%= form_tag("#", method: "get") do %>
-      <%= text_field_tag :q, params[:q], placeholder: "Search Ideas" %>
+<div class="flex-container">
+
+  <section id="ideas">
+    <section id="search-ideas">
+      <%= form_tag("#", method: "get") do %>
+        <%= text_field_tag :q, params[:q], placeholder: "Search Ideas" %>
+      <% end %>
+    </section>
+
+    <% @ideas.each do |i| %>
+      <article class="idea" data-idea-id=<%= i.id.to_s %>>
+        <h2><%= i.title %></h2>
+        <span><%= i.created_at.strftime("%b. %d, %Y") %> at <%= i.created_at.strftime("%l:%M%P") %></span>
+        <p><%= i.body.truncate(100, separator: /\s/) %></p>
+        <span><%= i.quality %></span>
+        <%= button_tag "+" %>
+        <%= button_tag "-" %>
+        <%= link_to "Edit", edit_idea_path(i.id) %>
+        <%= button_tag "Delete", class: "delete-idea" %>
+      </article>
     <% end %>
   </section>
 
-  <% @ideas.each do |i| %>
-    <article class="idea" data-idea-id=<%= i.id.to_s %>>
-      <h2><%= i.title %></h2>
-      <span><%= i.created_at.strftime("%b. %d, %Y") %> at <%= i.created_at.strftime("%l:%M%P") %></span>
-      <p><%= i.body.truncate(100, separator: /\s/) %></p>
-      <span><%= i.quality %></span>
-      <%= button_tag "+" %>
-      <%= button_tag "-" %>
-      <%= link_to "Edit", edit_idea_path(i.id) %>
-      <%= button_tag "Delete", class: "delete-idea" %>
-    </article>
-  <% end %>
-</section>
+  <aside id="idea-creation-area">
+    <h2>Add an Idea:</h2>
+    <%= form_for :idea, remote: true do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+      <%= f.submit "Save", id: "save-idea" %>
+    <% end %>
+  </aside>
 
-<aside id="idea-creation-area">
-  <h2>Add an Idea:</h2>
-  <%= form_for :idea, remote: true do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-    <%= f.submit "Save", id: "save-idea" %>
-  <% end %>
-</aside>
+</div>

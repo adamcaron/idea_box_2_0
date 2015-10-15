@@ -52,7 +52,7 @@ header, footer {
 .page-wrapper {
   min-height: 100%;
   max-width: 1024px;
-  margin: 0 auto; /* margin-bottom equal to footer height */
+  margin: 0 auto; /* margin-bottom equal to footer height, for sticky footer */
 }
 
 .flex-container {

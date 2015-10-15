@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe IdeasController, type: :controller do
-  context "#index" do
-  end
 
   context "#create" do
     it "responds with a newly-created idea" do
@@ -66,4 +64,27 @@ RSpec.describe IdeasController, type: :controller do
       expect(updated.body).to eq("New details")
     end
   end
+
+  context "#quality_up" do
+    it "responds with an idea, with quality updated" do
+      idea = Idea.create(title: "Some Idea", body: "details")
+
+      put :quality_up, id: idea.id
+
+      updated_idea = JSON.parse(response.body, symbolize_names: true)
+      expect(updated_idea[:quality]).to eq("plausible")
+    end
+  end
+
+  context "#quality_down" do
+    it "responds with an idea, with quality updated" do
+      idea = Idea.create(title: "Some Idea", body: "details", quality: "plausible")
+
+      put :quality_down, id: idea.id
+
+      updated_idea = JSON.parse(response.body, symbolize_names: true)
+      expect(updated_idea[:quality]).to eq("swill")
+    end
+  end
+
 end

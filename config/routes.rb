@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  root   'ideas#index'
-  # post   '/ideas',          to: 'ideas#create'
-  # delete '/ideas/:id',      to: 'ideas#destroy'
-  # get    '/ideas/:id/edit', to: 'ideas#edit', as: 'edit_idea'
-  # post   '/ideas/:id',      to: 'ideas#update'
+  root      'ideas#index'
 
   resources :ideas, except: [:new, :index, :show]
+
+  put       'ideas/:id/quality-up',   to: 'ideas#quality_up'
+  put       'ideas/:id/quality-down', to: 'ideas#quality_down'
 end

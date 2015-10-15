@@ -1,15 +1,13 @@
 $(document).on('click', "#save-idea", function (event) {
   event.preventDefault();
-  // Get the form data & the form
+  // Get the form data
   var title = $("#idea_title").val();
   var body  = $("#idea_body").val();
   var form  = '#idea-creation-area form'
-
-  // Create & render the new idea, and reset the form
+  // Create Idea, Render Idea, Reset the form
   createNewIdea(title, body)
     .then(renderNewIdea)
     .then(function () {
-      debugger;
       clearFormFields(form);
   });
 });
@@ -32,12 +30,12 @@ function renderNewIdea (idea) {
     + idea.date
     + "</span><p>"
     + idea.body
-    + "</p><span>"
+    + "</p><span class='quality'>"
     + idea.quality
-    + "\n</span><button name='button' type='submit'>+</button>\n"
-    + "<button name='button' type='submit'>-</button>\n"
+    + "</span>\n<button class='quality-up' type='submit'>+</button>\n"
+    + "<button class='quality-down' type='submit'>-</button>\n"
     + "<a href='ideas/" + idea.id + "/edit'>Edit</a>\n"
-    + "<button class='delete-idea' name='button' type='submit'>Delete</button>"
+    + "<button class='delete-idea' type='submit'>Delete</button>"
     + "</article>"
   );
 };

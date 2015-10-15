@@ -7,14 +7,14 @@
 
     <% @ideas.each do |i| %>
       <article class="idea" data-idea-id=<%= i.id.to_s %>>
-        <h2><%= i.title %></h2>
-        <span><%= i.date %></span>
-        <p><%= i.truncated_body %></p>
+        <h2 class="title"><%= i.title %></h2>
+        <span class="date"><%= i.date %></span>
+        <p class="body"><%= i.truncated_body %></p>
+        <%= link_to "Edit", edit_idea_path(i.id), class: "edit-idea" %>
+        <%= button_tag "Delete", class: "delete-idea" %>
         <span class="quality"><%= i.quality %></span>
         <%= button_tag "+", class: "quality-up" %>
         <%= button_tag "-", class: "quality-down" %>
-        <%= link_to "Edit", edit_idea_path(i.id) %>
-        <%= button_tag "Delete", class: "delete-idea" %>
       </article>
     <% end %>
   </section>

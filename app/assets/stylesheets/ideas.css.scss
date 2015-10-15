@@ -44,7 +44,7 @@ form.edit_idea {
 }
 
 h2#edit-title {
-  height: 60px;
+  height: 30px;
   width: 100%;
   text-align: center;
   margin-top: 25px;
@@ -104,6 +104,66 @@ h2#edit-title {
 }
 
 // Ideas
+.delete-idea {
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.edit-idea, .delete-idea {
+  padding: 6px 12px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  color: black;
+}
+
+.edit-idea:hover, .delete-idea:hover {
+  border: 1px solid #dddddd;
+}
+
+.edit-idea:active, .delete-idea:active {
+  color: tomato;
+}
+
+.edit-idea:visited, .delete-idea:visited {
+  color: black;
+}
+
+.quality-up, .quality-down {
+  padding: 6px 12px;
+  float: right;
+}
+
+.quality {
+  padding: 6px 12px;
+  text-align: right;
+  float: right;
+  text-transform: capitalize;
+}
+
+.body {
+  width: 65%;
+  clear: both;
+}
+
+.date {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 18px;
+  float: right;
+}
+
+.title {
+  width: 65%;
+  float: left;
+}
+
+.idea:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .idea {
   background-color: white;
   padding: 10px;

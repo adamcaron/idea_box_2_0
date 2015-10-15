@@ -14,7 +14,7 @@ function filterSearchInput () {
 function renderSearchResults (searchInput) {
   // Compare all the ideas with Search Input
   $(".idea").each(function (index, idea) {
-    var ideaContent = $(idea).find('h2, p').text().toLowerCase()
+    var ideaContent = $(idea).find('.title, .body').text().toLowerCase()
     // Compare content with search terms
     var results = ideaContent.indexOf(searchInput) !== -1;
     // hide or show accordingly

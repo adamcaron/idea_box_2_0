@@ -21,7 +21,7 @@ class Idea < ActiveRecord::Base
 
   def date
     date = self.created_at.localtime
-    date.strftime("%b. %d, %Y") + " at " + date.strftime("%l:%M%P")
+    date.strftime("%b %d, %Y") + " at " + date.strftime("%l:%M%P")
   end
 
   def truncated_body

@@ -86,8 +86,8 @@ h2#edit-title {
   flex: 1;
 }
 
-// Ideas
-#search-ideas input[type="text"] {
+// Search Ideas
+#search-input {
   border: 1px solid #ccc;
   margin: 5px 0;
   font-size: 1em;
@@ -96,13 +96,14 @@ h2#edit-title {
   flex: auto;
 }
 
-#search-ideas form {
+#search-area {
   display:                -webkit-flex;
   display:                flex;
   -webkit-flex-direction: row;
   flex-direction:         row;
 }
 
+// Ideas
 .idea {
   background-color: white;
   padding: 10px;

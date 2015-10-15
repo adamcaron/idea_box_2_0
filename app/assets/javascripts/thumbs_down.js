@@ -4,7 +4,7 @@ $(document).on('click', ".quality-down", function (event) {
   var id = $(this).closest(".idea").data("idea-id")
   // Update the idea
   decreaseQuality(id)
-    // Render the new quality
+    // Render the newly updated quality
     .then(renderUpdatedQuality);
 });
 

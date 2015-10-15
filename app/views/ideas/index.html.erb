@@ -1,10 +1,8 @@
 <div class="flex-container">
 
   <section id="ideas">
-    <section id="search-ideas">
-      <%= form_tag("#", method: "get") do %>
-        <%= text_field_tag :q, params[:q], placeholder: "Search Ideas" %>
-      <% end %>
+    <section id="search-area">
+      <input type="text" id="search-input" placeholder="Search Ideas" />
     </section>
 
     <% @ideas.each do |i| %>
